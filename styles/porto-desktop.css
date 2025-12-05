@@ -2549,11 +2549,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .specialist-bullets li {
     font-size: 14px;
-    color: var(--text-muted);
+    color: var(--text-muted) !important;
     line-height: 1.6;
     margin-bottom: 8px;
     padding-left: 18px;
     position: relative;
+    text-decoration: none !important;
 }
 
 .specialist-bullets li::before {
