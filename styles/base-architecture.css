@@ -61,6 +61,51 @@
 .bg-dark { background-color: var(--primary-color, #0E2B48); }
 .bg-accent { background-color: var(--accent-color, #FF1654); }
 
+/* Dark background text override - ensures all text is light on dark sections */
+.bg-dark,
+.section--hero.bg-dark,
+[data-theme="dark"] {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4, .bg-dark h5, .bg-dark h6,
+.bg-dark p, .bg-dark span, .bg-dark li, .bg-dark strong,
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3,
+[data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6,
+[data-theme="dark"] p, [data-theme="dark"] span, [data-theme="dark"] li,
+[data-theme="dark"] strong {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Service Snapshot - Hero bullet points */
+.service-snapshot {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.snapshot-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.snapshot-item i {
+    color: var(--accent-color, #FF1654);
+    font-size: 14px;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.snapshot-item strong {
+    color: #ffffff;
+}
+
 /* ============================================
    CONTAINER - Centered max-width wrapper
    ============================================ */
