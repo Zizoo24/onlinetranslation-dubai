@@ -1,0 +1,93 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  isHomepage?: boolean;
+}
+
+const { 
+  title, 
+  description, 
+  canonical = Astro.url.pathname,
+  ogImage = '/images/og-image.jpg',
+  isHomepage = false
+} = Astro.props;
+
+const siteUrl = 'https://onlinetranslation.ae';
+const fullCanonical = canonical.startsWith('http') ? canonical : `${siteUrl}${canonical}`;
+---
+
+<!DOCTYPE html>
+<html lang="en-AE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="author" content="OnlineTranslation.ae">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <link rel="canonical" href={fullCanonical}>
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={fullCanonical}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={`${siteUrl}${ogImage}`}>
+  <meta property="og:locale" content="en_AE">
+  <meta property="og:site_name" content="OnlineTranslation.ae">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content={fullCanonical}>
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={`${siteUrl}${ogImage}`}>
+  
+  <!-- Theme -->
+  <meta name="theme-color" content="#0E2B48">
+  <meta name="format-detection" content="telephone=yes">
+  <link rel="manifest" href="/manifest.webmanifest">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/icons/favicon-64.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16.png">
+  <link rel="apple-touch-icon" href="/images/onedrive/emblem.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/base-architecture.css">
+  <link rel="stylesheet" href="/styles/porto-desktop.css">
+  <link rel="stylesheet" href="/styles/sticky-mobile.css">
+  <link rel="stylesheet" href="/styles/mobile-ios.css">
+  <link rel="stylesheet" href="/styles/mobile-android.css">
+  <link rel="stylesheet" href="/styles/desktop-macos.css">
+  <link rel="stylesheet" href="/styles/dark-mode.css">
+  <link rel="stylesheet" href="/styles/megamenu.css">
+  
+  <slot name="head" />
+</head>
+<body class={isHomepage ? 'homepage' : ''}>
+  
+  <Header isHomepage={isHomepage} />
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer />
+
+</body>
+</html>

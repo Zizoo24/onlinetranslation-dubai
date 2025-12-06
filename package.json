@@ -19,9 +19,12 @@
     "document-translation"
   ],
   "scripts": {
-    "start": "python server.py",
-    "build:sitemap": "node scripts/generate-sitemap.mjs",
-    "check": "npm run build:sitemap",
-    "test": "echo \"Static site - no tests\""
+    "dev": "astro dev --port 5000 --host 0.0.0.0",
+    "build": "astro build",
+    "preview": "astro preview --port 5000 --host 0.0.0.0",
+    "start": "astro dev --port 5000 --host 0.0.0.0"
+  },
+  "dependencies": {
+    "astro": "^5.16.4"
   }
 }

@@ -82,3 +82,14 @@ The system is designed as a "Digital Concierge" with a "WhatsApp-First Architect
 - **Protection:** Any future dark-themed sections will automatically have legible light text
 
 **Service Worker:** Currently at v140
+
+**Astro Migration - December 6, 2025:**
+- **Framework:** Migrated from static HTML to Astro 5.x for easier content management
+- **Project structure:** src/layouts/, src/components/, src/pages/, src/content/, src/styles/
+- **Layouts:** BaseLayout.astro (base with Header/Footer components), ServiceLayout.astro (extends BaseLayout for document pages)
+- **Components:** Header.astro (modern megamenu + mobile nav with JS), Footer.astro (reusable footer)
+- **Navigation:** Modern megamenu with hover dropdowns, accessible keyboard navigation, mobile hamburger menu
+- **Schema markup:** Automatic generation for Service, Breadcrumb, and FAQ schemas
+- **Content workflow:** Document pages defined as Astro files with front-matter for SEO and content structure
+- **Vercel:** Updated vercel.json with Astro build configuration
+- **CSS preserved:** All existing stylesheets (base-architecture.css, porto-desktop.css, etc.) imported as-is

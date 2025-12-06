@@ -1,0 +1,215 @@
+---
+interface Props {
+  isHomepage?: boolean;
+}
+
+const { isHomepage = false } = Astro.props;
+---
+
+<!-- Modern Desktop Header -->
+<header class="ot-desktop-header">
+  <div class="ot-nav-shell">
+    <a href="/" class="ot-brand">
+      <span class="ot-brand-mark">OT</span>
+      <span class="ot-brand-text">OnlineTranslation<span>.ae</span></span>
+    </a>
+
+    <nav class="ot-main-nav" aria-label="Primary">
+      <ul class="ot-nav-list">
+        <li class="ot-nav-item ot-has-dropdown">
+          <button class="ot-nav-link" type="button" aria-expanded="false" aria-haspopup="true">
+            Services
+            <span class="ot-nav-caret">▾</span>
+          </button>
+          <div class="ot-dropdown-panel">
+            <div class="ot-dropdown-col">
+              <p class="ot-dropdown-label">Core</p>
+              <a href="/services/legal-translation/" class="ot-dropdown-link">Legal Translation (MOJ)</a>
+              <a href="/services/certificate-translation/" class="ot-dropdown-link">Certificate Translation</a>
+              <a href="/services/corporate-translation/" class="ot-dropdown-link">Corporate & Contracts</a>
+            </div>
+            <div class="ot-dropdown-col">
+              <p class="ot-dropdown-label">Immigration</p>
+              <a href="/services/golden-visa/" class="ot-dropdown-link">Golden Visa Packages</a>
+              <a href="/services/attestation/" class="ot-dropdown-link">Attestation & MOFAIC</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="ot-nav-item ot-has-dropdown">
+          <button class="ot-nav-link" type="button" aria-expanded="false" aria-haspopup="true">
+            Personal Documents
+            <span class="ot-nav-caret">▾</span>
+          </button>
+          <div class="ot-dropdown-panel">
+            <div class="ot-dropdown-col">
+              <p class="ot-dropdown-label">Vital Records</p>
+              <a href="/personal/vital-records/birth/" class="ot-dropdown-link">Birth Certificate</a>
+              <a href="/personal/vital-records/marriage/" class="ot-dropdown-link">Marriage Certificate</a>
+              <a href="/personal/vital-records/divorce/" class="ot-dropdown-link">Divorce Certificate</a>
+              <a href="/personal/vital-records/death/" class="ot-dropdown-link">Death Certificate</a>
+            </div>
+            <div class="ot-dropdown-col">
+              <p class="ot-dropdown-label">Immigration</p>
+              <a href="/personal/immigration/pcc/" class="ot-dropdown-link">Police Clearance / PCC</a>
+              <a href="/personal/education/degree/" class="ot-dropdown-link">Degree Certificate</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="ot-nav-item ot-has-dropdown">
+          <button class="ot-nav-link" type="button" aria-expanded="false" aria-haspopup="true">
+            Legal & Corporate
+            <span class="ot-nav-caret">▾</span>
+          </button>
+          <div class="ot-dropdown-panel">
+            <div class="ot-dropdown-col">
+              <p class="ot-dropdown-label">Corporate</p>
+              <a href="/legal/corporate/moa/" class="ot-dropdown-link">Memorandum of Association</a>
+              <a href="/legal/corporate/poa/" class="ot-dropdown-link">Power of Attorney</a>
+              <a href="/legal/corporate/trade-license/" class="ot-dropdown-link">Trade License</a>
+            </div>
+            <div class="ot-dropdown-col">
+              <p class="ot-dropdown-label">Contracts</p>
+              <a href="/legal/contracts/nda/" class="ot-dropdown-link">NDA / Confidentiality</a>
+              <a href="/legal/contracts/employment/" class="ot-dropdown-link">Employment Contract</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="ot-nav-item ot-has-dropdown">
+          <button class="ot-nav-link" type="button" aria-expanded="false" aria-haspopup="true">
+            Locations
+            <span class="ot-nav-caret">▾</span>
+          </button>
+          <div class="ot-dropdown-panel">
+            <div class="ot-dropdown-col">
+              <p class="ot-dropdown-label">Dubai</p>
+              <a href="/locations/dubai/" class="ot-dropdown-link">Dubai (All Areas)</a>
+              <a href="/locations/palm-jumeirah/" class="ot-dropdown-link">Palm Jumeirah</a>
+              <a href="/locations/jlt-dmcc/" class="ot-dropdown-link">JLT & DMCC</a>
+              <a href="/locations/difc/" class="ot-dropdown-link">DIFC</a>
+            </div>
+            <div class="ot-dropdown-col">
+              <p class="ot-dropdown-label">Other Emirates</p>
+              <a href="/locations/abu-dhabi/" class="ot-dropdown-link">Abu Dhabi</a>
+              <a href="/locations/sharjah/" class="ot-dropdown-link">Sharjah</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="ot-nav-item ot-has-dropdown">
+          <button class="ot-nav-link" type="button" aria-expanded="false" aria-haspopup="true">
+            Resources
+            <span class="ot-nav-caret">▾</span>
+          </button>
+          <div class="ot-dropdown-panel ot-dropdown-panel--single">
+            <div class="ot-dropdown-col">
+              <p class="ot-dropdown-label">Help</p>
+              <a href="/resources/faq/" class="ot-dropdown-link">FAQ</a>
+              <a href="/resources/pricing/" class="ot-dropdown-link">Pricing Guide</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="ot-nav-item">
+          <a href="/contact/" class="ot-nav-link">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="ot-nav-cta">
+      <a href="https://wa.me/971508620217" class="ot-whatsapp-pill">
+        <span class="ot-wa-dot"></span>
+        WhatsApp us
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Header -->
+<header class="ot-mobile-header">
+  <div class="ot-mobile-shell">
+    <a href="/" class="ot-brand">
+      <span class="ot-brand-mark">OT</span>
+      <span class="ot-brand-text">OnlineTranslation<span>.ae</span></span>
+    </a>
+    <button class="ot-mobile-toggle" aria-label="Open menu" id="mobileMenuToggle" aria-expanded="false">
+      <span class="ot-hamburger"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="ot-mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="ot-mobile-menu-header">
+    <span class="ot-brand-text">OnlineTranslation<span>.ae</span></span>
+    <button class="ot-mobile-close" aria-label="Close menu" id="mobileMenuClose">×</button>
+  </div>
+  <nav class="ot-mobile-nav">
+    <a href="/" class="ot-mobile-link">Home</a>
+    <a href="/services/legal-translation/" class="ot-mobile-link">Legal Translation</a>
+    <a href="/personal/vital-records/birth/" class="ot-mobile-link">Birth Certificate</a>
+    <a href="/personal/vital-records/marriage/" class="ot-mobile-link">Marriage Certificate</a>
+    <a href="/legal/corporate/moa/" class="ot-mobile-link">MOA Translation</a>
+    <a href="/legal/corporate/poa/" class="ot-mobile-link">Power of Attorney</a>
+    <a href="/locations/dubai/" class="ot-mobile-link">Dubai</a>
+    <a href="/contact/" class="ot-mobile-link">Contact</a>
+  </nav>
+  <div class="ot-mobile-cta">
+    <a href="https://wa.me/971508620217" class="ot-whatsapp-pill ot-whatsapp-pill--large">
+      <span class="ot-wa-dot"></span>
+      WhatsApp us
+    </a>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('mobileMenuToggle');
+    const close = document.getElementById('mobileMenuClose');
+    const menu = document.getElementById('mobileMenu');
+    
+    function openMenu() {
+      menu?.classList.add('is-open');
+      menu?.setAttribute('aria-hidden', 'false');
+      toggle?.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMenu() {
+      menu?.classList.remove('is-open');
+      menu?.setAttribute('aria-hidden', 'true');
+      toggle?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    
+    toggle?.addEventListener('click', openMenu);
+    close?.addEventListener('click', closeMenu);
+    
+    menu?.addEventListener('click', (e) => {
+      if (e.target === menu) closeMenu();
+    });
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu?.classList.contains('is-open')) {
+        closeMenu();
+      }
+    });
+
+    const dropdownButtons = document.querySelectorAll('.ot-has-dropdown > .ot-nav-link');
+    dropdownButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        dropdownButtons.forEach(b => b.setAttribute('aria-expanded', 'false'));
+        this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.ot-has-dropdown')) {
+        dropdownButtons.forEach(b => b.setAttribute('aria-expanded', 'false'));
+      }
+    });
+  });
+</script>
