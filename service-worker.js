@@ -1,8 +1,9 @@
-const CACHE_NAME = 'onlinetranslation-v129';
+const CACHE_NAME = 'onlinetranslation-v131';
 const urlsToCache = [
   '/',
   '/index.html',
   '/offline.html',
+  '/styles/base-architecture.css',
   '/styles/porto-desktop.css',
   '/styles/sticky-mobile.css',
   '/styles/mobile-ios.css',

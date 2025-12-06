@@ -33,9 +33,51 @@ The system is designed as a "Digital Concierge" with a "WhatsApp-First Architect
 - **Deployment:** Vercel with `vercel.json` for configuration.
 - **PWA:** `manifest.webmanifest` and `service-worker.js` for Progressive Web App capabilities.
 - **Local Development:** `server.py` for a local development server.
-- **CSS Architecture:** 6 distinct CSS files for OS-specific conditional loading (`porto-desktop.css`, `sticky-mobile.css`, `dark-mode.css`, `mobile-ios.css`, `mobile-android.css`, `desktop-macos.css`).
+- **CSS Architecture:** Base architecture CSS + 6 OS-specific stylesheets. Load order: `base-architecture.css` → `porto-desktop.css` → OS-specific files.
 - **Schema Markup:** Required on every page for SEO, including Service Schema (e.g., "LegalService"), LocalBusiness Schema, FAQPage Schema, and BreadcrumbList.
 - **Performance Standards:** Page load under 3 seconds on 3G, lazy loading for accordion content, WebP images with JPG fallback, no JavaScript console errors.
+
+**Base Architecture CSS System (December 2025):**
+The site uses a Divi-style grid architecture defined in `styles/base-architecture.css`. This file provides:
+
+- **Section Primitives:** Full-width wrappers with consistent padding
+  - `.section` - Default section with 120px vertical padding
+  - `.section--sm` - Compact section (60px padding)
+  - `.section--hero` - Hero-specific with min-height
+  - Background utilities: `.bg-white`, `.bg-light`, `.bg-alt`, `.bg-dark`, `.bg-accent`
+
+- **Container System:** Centered max-width wrappers
+  - `.container` - Default 1200px max-width
+  - `.container--narrow` - 900px for content-focused sections
+  - `.container--wide` - 1400px for expansive layouts
+
+- **Grid Utilities:** CSS Grid with auto-fit behavior
+  - `.grid-2`, `.grid-3`, `.grid-4`, `.grid-5` - Fixed column grids
+  - `.grid--auto-fit` - Responsive with 280px minimum column width
+  - `.carousel-mobile` - Horizontal scroll on mobile, grid on desktop
+
+- **Spacing Scale:** 8-point system (4px base)
+  - Variables: `--space-xs` (8px), `--space-sm` (16px), `--space-md` (24px), `--space-lg` (40px), `--space-xl` (60px)
+  - Utility classes: `.mt-sm`, `.mb-lg`, `.py-xl`, `.px-md`, etc.
+
+- **Responsive Breakpoints:**
+  - Tablet: 768px - 991px (reduces spacing, 2-col grids)
+  - Mobile: 767px and below (single column, smaller spacing)
+  - Small phones: 480px and below (minimal padding)
+
+**Usage Pattern:**
+```html
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-header">...</div>
+    <div class="grid grid-4 grid--auto-fit">
+      <!-- Cards here -->
+    </div>
+  </div>
+</section>
+```
+
+**Migration Note:** When adding new sections, use base architecture classes for layout. Component styles (cards, buttons) remain in `porto-desktop.css`. Grid layout rules in porto-desktop.css are deprecated in favor of base-architecture.css.
 
 **Feature Specifications:**
 - **Content Structure:** 4-Silo SEO structure targeting Legal & Corporate, Personal & Civil, Industry Specialized, and Locations.
@@ -51,6 +93,18 @@ The system is designed as a "Digital Concierge" with a "WhatsApp-First Architect
 - **Vercel:** The platform used for production deployment of the website.
 
 ## Recent Changes (December 2025)
+
+**Base Architecture CSS Implementation - December 6, 2025:**
+- Created `styles/base-architecture.css` with Divi-style grid system
+- Section primitives (`.section`, `.section--sm`, `.section--hero`) with background utilities
+- Container system (`.container`, `.container--narrow`, `.container--wide`)
+- CSS Grid utilities (`.grid-2` through `.grid-5`, `.grid--auto-fit`)
+- Spacing scale utilities (`.mt-sm`, `.mb-lg`, `.py-xl`, etc.)
+- Responsive breakpoints (tablet 991px, mobile 767px, small phones 480px)
+- Applied to all 51 HTML pages site-wide
+- Homepage sections refactored to use new grid classes
+- Deprecated redundant `display: grid` rules in porto-desktop.css (replaced with comments)
+- Service worker bumped to v131
 
 **Homepage UX Refactor - December 5, 2025:**
 - Hero section restructured: long paragraph replaced with scannable lead + 3 bullet points
