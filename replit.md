@@ -73,4 +73,12 @@ The system is designed as a "Digital Concierge" with a "WhatsApp-First Architect
 - **CSS implementation:** `.homepage .header-desktop.exodus-header:not(.scrolled)` rules in porto-desktop.css
 - **Scroll behavior preserved:** Header transitions to navy background on scroll (same as before)
 
-**Service Worker:** Currently at v139
+**Dark Background Text Visibility Fix - December 6, 2025:**
+- **Root cause:** `.service-snapshot` and `.snapshot-item` classes had no CSS defined, inheriting dark body text on navy backgrounds
+- **Site-wide fix in base-architecture.css:**
+  - Added cascading rule for `.bg-dark` and `[data-theme="dark"]` containers with `color: rgba(255, 255, 255, 0.95)`
+  - All child text elements (h1-h6, p, span, li, strong) inherit light color automatically
+  - Added complete `.service-snapshot` and `.snapshot-item` definitions
+- **Protection:** Any future dark-themed sections will automatically have legible light text
+
+**Service Worker:** Currently at v140
